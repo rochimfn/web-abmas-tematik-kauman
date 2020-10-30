@@ -5,8 +5,8 @@ Sebelum instalasi pastikan sistem operasi yang digunakan sudah memenuhi [System 
 Gunakan perintah berikut untuk mengunduh kode sumber dan memasang dependensi.
 
 ```
-git clone https://github.com/rochimfn/iscom-dashboard.git
-cd iscom-dashboard
+git clone git@github.com:rochimfn/web-abmas-tematik-kauman.git
+cd web-abmas-tematik-kauman
 composer install
 composer dump
 ```
@@ -18,7 +18,7 @@ cp .env.example .env //Pada sistem operasi *nix
 copy .env.example .env //Pada sistem operasi Windows
 ```
 
-Konfigurasi yang wajib diatur meliputi \*APP*\** dan *DB*\*\*. APP_KEY dapat digenerate dengan perintah berikut.
+Konfigurasi yang wajib diatur meliputi \*APP\*\** dan *DB\*\*\*. APP_KEY dapat digenerate dengan perintah berikut.
 
 ```
 php artisan key:generate
