@@ -18,7 +18,7 @@ cp .env.example .env //Pada sistem operasi *nix
 copy .env.example .env //Pada sistem operasi Windows
 ```
 
-Konfigurasi yang wajib diatur meliputi \*APP\*\** dan *DB\*\*\*. APP_KEY dapat digenerate dengan perintah berikut.
+Konfigurasi yang wajib diatur meliputi _APP_\_\* dan _DB_\*. APP_KEY dapat digenerate dengan perintah berikut.
 
 ```
 php artisan key:generate
