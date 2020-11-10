@@ -1,6 +1,4 @@
-
-
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="row">
@@ -8,11 +6,11 @@
     <a href="{{route('post.create')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
   </div>
 
-    <div class="col-lg-12">
-      @if (Session::has('message'))
-        <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
-      @endif
-      </div>
+  <div class="col-lg-12">
+    @if (Session::has('message'))
+    <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
+    @endif
+  </div>
 </div>
 <div class="row" style="margin-top: 20px;">
   <div class="col-lg-12 grid-margin stretch-card">
@@ -53,10 +51,10 @@
             </div>
            {{$posts->links()}}
         </div>
+        {{$posts->links()}}
       </div>
     </div>
+  </div>
 </div>
 
 @endsection
-
-

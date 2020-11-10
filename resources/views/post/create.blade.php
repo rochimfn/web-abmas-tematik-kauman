@@ -2,27 +2,27 @@
 
 
 <script type="text/javascript">
-        function readURL() {
-            var input = this;
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $(input).prev().attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
+    function readURL() {
+        var input = this;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $(input).prev().attr('src', e.target.result);
             }
+            reader.readAsDataURL(input.files[0]);
         }
+    }
 
-        $(function () {
-            $(".uploads").change(readURL)
-            $("#f").submit(function(){
-                return false
-            })
+    $(function() {
+        $(".uploads").change(readURL)
+        $("#f").submit(function() {
+            return false
         })
-        </script>
+    })
+</script>
 @stop
 
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
