@@ -35,13 +35,13 @@
                   @foreach($posts as $post)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$post['judul']}}</td>
-                    <td>{{$post['isi']}}</td>
+                    <td>{{$post['post_judul']}}</td>
+                    <td>{{$post['post_isi']}}</td>
                     <td>{{date('d/m/y h:m', strtotime($post['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($post['updated_at']))}}</td>
                     <td>
-                    <a href="{{route('post.edit', $post['id'])}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
-                      <td><form method="POST" action="{{route('post.destroy', $post['id'])}}" >
+                    <a href="{{route('post.edit', $post['post_id'])}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+                      <td><form method="POST" action="{{route('post.destroy', $post['post_id'])}}" >
                       {{ csrf_field() }}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-info" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>

@@ -32,25 +32,25 @@
                 <div class="card-header" color:rgb(123, 104, 238)>{{ __('Edit Pemberitahuan') }}</div>
 
                     <div class="card-body">
-                        <form method="post" action="{{route('post.update',  $post['id'])}}" enctype="multipart/form-data">
+                        <form method="post" action="{{route('post.update',  $post['post_id'])}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                                <div class="form-group{{ $errors->has('judul') ? ' has-error' : '' }}">
-                                    <label for="judul" class="col-md-24 control-label">Judul</label>
+                                <div class="form-group{{ $errors->has('post_judul') ? ' has-error' : '' }}">
+                                    <label for="post_judul" class="col-md-24 control-label">Judul</label>
                                     <div class="col-md-30">
-                                        <input id="judul" type="text" class="form-control" name="judul" value="{{ $post->judul }}" required>
-                                         @if ($errors->has('judul'))
+                                        <input id="post_judul" type="text" class="form-control" name="post_judul" value="{{ $post->post_judul }}" required>
+                                         @if ($errors->has('post_judul'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('judul') }}</strong>
+                                            <strong>{{ $errors->first('post_judul') }}</strong>
                                         </span>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="form-group{{ $errors->has('isi') ? ' has-error' : '' }}">
-                                    <label for="isi" class="col-md-24 control-label">Isi Pemberitahuan</label>
-                                    <textarea id="isi" type="text" class="form-control" name="isi" rows="12" value="{{ $post->isi }}" required></textarea>
-                                    @if ($errors->has('isi'))
+                                <div class="form-group{{ $errors->has('post_isi') ? ' has-error' : '' }}">
+                                    <label for="post_isi" class="col-md-24 control-label">Isi Pemberitahuan</label>
+                                    <textarea id="post_isi" type="text" class="form-control" name="post_isi" rows="12" value="{{ $post->post_isi }}" required></textarea>
+                                    @if ($errors->has('post_isi'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('isi') }}</strong>
+                                        <strong>{{ $errors->first('post_isi') }}</strong>
                                     </span>
                                     @endif
                                 </div>

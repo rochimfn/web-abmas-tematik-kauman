@@ -32,8 +32,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = $this->validate(request(),[
-            'judul' => 'required',
-            'isi' => 'required'
+            'post_judul' => 'required',
+            'post_isi' => 'required'
         ]);
         Post::create($post);
         return redirect()->route('post.index')->with('success', 'Pemberitahuan berhasil dikirim');;
@@ -73,11 +73,11 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $this->validate(request(), [
-            'judul' => 'required',
-            'isi' => 'required',
+            'post_judul' => 'required',
+            'post_isi' => 'required',
             ]);
-            $post->judul = $request->get('judul');
-            $post->isi = $request->get('isi');
+            $post->judul = $request->get('post_judul');
+            $post->isi = $request->get('post_isi');
             $post->save();
             return redirect()->route('post.index')->with('success', 'Pemberitahuan berhasil diupdate');
     }

@@ -20,12 +20,12 @@ class Post extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'post_id';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['judul','isi'];
+    protected $fillable = ['post_judul','post_isi'];
 }
