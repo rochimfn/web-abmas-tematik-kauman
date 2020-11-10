@@ -17,7 +17,7 @@ class CreatePostTable extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->text('isi');
-            $table->timestamps('created_at');
+            $table->timestamps();
         });
     }
 

@@ -16,9 +16,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <script src="https://kit.fontawesome.com/9a86b7e128.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -73,8 +74,33 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-4" container-fluid>
+            <div id="sidebar" class="sidebar float-left">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="">
+                    <h5>Admin</h5>
+                </div>
+                <div class="items-container">
+                    <a href="{{ route('home')}}">
+                        <h6 class="menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="menu-item"><i class="fas fa-mail-bulk"></i></i> Permintaan Surat</h6>
+                    </a>
+                    <a href="{{ route('post.index')}}">
+                        <h6 class="menu-item"><i class="fas fa-scroll"></i> Pemberitahuan</h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="menu-item"><i class="fas fa-user-plus"></i> Tambah Admin</h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="menu-item"><i class="fas fa-users-cog"></i> Reset Password Warga</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>
