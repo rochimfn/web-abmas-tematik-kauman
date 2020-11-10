@@ -77,8 +77,8 @@
         <main class="py-4" container-fluid>
             <div id="sidebar" class="sidebar float-left">
                 <div class="text-center">
-                    <img src="https://via.placeholder.com/100" alt="">
-                    <h5>Admin</h5>
+                <i class="fas fa-user-circle fa-5x"></i>
+                    <h5> {{ Auth::user()->username }}</h5>
                 </div>
                 <div class="items-container">
                     <a href="{{ route('home')}}">
