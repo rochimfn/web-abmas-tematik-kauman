@@ -8,13 +8,9 @@ use App\Models\Post;
 class PostController extends Controller
 {
     //
-    public function index(Request $request)
+    public function index()
     {
-        if($request->has('cari')){
-            $posts = Post::where('judul','LIKE', '%' .$request->cari. '%')->paginate(10);
-        }else{
-        $posts = Post::all();
-        }
+        $posts = Post::paginate(2);
         return view('post.index', compact('posts'));
     }
     /**

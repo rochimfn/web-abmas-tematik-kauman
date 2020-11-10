@@ -3,7 +3,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="row">
   <div class="col-lg-3">
     <a href="{{route('post.create')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
@@ -52,7 +51,7 @@
                 </tbody>
               </table>
             </div>
-           
+           {{$posts->links()}}
         </div>
       </div>
     </div>
