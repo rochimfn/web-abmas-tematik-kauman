@@ -76,8 +76,8 @@ class PostController extends Controller
             'post_judul' => 'required',
             'post_isi' => 'required',
             ]);
-            $post->judul = $request->get('post_judul');
-            $post->isi = $request->get('post_isi');
+            $post->post_judul = $request->get('post_judul');
+            $post->post_isi = $request->get('post_isi');
             $post->save();
             return redirect()->route('post.index')->with('success', 'Pemberitahuan berhasil diupdate');
     }
