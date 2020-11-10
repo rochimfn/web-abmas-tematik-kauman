@@ -28,5 +28,5 @@ class Notifikasi extends Model
      *
      * @var array
      */
-    protected $fillable = ['konten', 'user_Id'];
+    protected $fillable = ['konten', 'user_id'];
 }

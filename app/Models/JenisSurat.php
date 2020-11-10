@@ -28,5 +28,10 @@ class JenisSurat extends Model
      *
      * @var array
      */
-    protected $fillable = ['nama', 'persyaratan', 'nama_template'];
+    protected $fillable = ['nama', 'persyaratan', 'biodata_diperlukan', 'nama_template'];
+
+    public function isianSurat()
+    {
+        return $this->hasMany('App\Models\IsianSurat', 'jenis_surat_id', 'jenis_surat_id');
+    }
 }

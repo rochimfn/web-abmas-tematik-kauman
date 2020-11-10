@@ -16,7 +16,7 @@ class CreateNotifikasiTable extends Migration
         Schema::create('notifikasi', function (Blueprint $table) {
             $table->bigIncrements('notifikasi_id');
             $table->text('konten');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

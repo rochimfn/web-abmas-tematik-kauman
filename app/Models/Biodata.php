@@ -28,4 +28,14 @@ class Biodata extends Model
      * @var array
      */
     protected $fillable = ['no_nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'sdhk', 'agama_id', 'pendidikan_terakhir', 'pekerjaan', 'nama_ibu', 'no_kk'];
+
+    public function agama()
+    {
+        return $this->belongsTo('App\Models\Agama', 'agama_id', 'agama_id');
+    }
+
+    public function kartuKeluarga()
+    {
+        return $this->belongsTo('App\Models\KartuKeluarga', 'no_kk', 'no_kk');
+    }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -16,10 +17,9 @@ class UserSeeder extends Seeder
     {
         $user = [
             [
-                'nik' => '1050241708900001',
-                'name' => 'admin wikipedia',
+                'username' => 'admin',
                 'email' => 'admin@localhost',
-                'password' => '$2y$10$S7yMc/9M1J6mrotdlzGkIe8o3UGCa3OZDILOZbUoXp.VrAFBHmtqm',
+                'password' => Hash::make('{password_1}'),
                 'email_verified_at' => now(),
                 'is_admin' => 1
             ]

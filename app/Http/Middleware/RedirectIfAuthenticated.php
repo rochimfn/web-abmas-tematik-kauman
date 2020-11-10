@@ -23,7 +23,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                if($request->user()['is_admin'] == 1) {
+                    return redirect()->route('home');
+                } else {
+                    return redirect()->route('beranda.warga');
+                }
             }
         }
 

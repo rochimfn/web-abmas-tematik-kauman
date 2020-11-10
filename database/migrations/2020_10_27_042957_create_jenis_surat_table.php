@@ -17,6 +17,7 @@ class CreateJenisSuratTable extends Migration
             $table->bigIncrements('jenis_surat_id');
             $table->string('nama');
             $table->text('persyaratan');
+            $table->string('biodata_diperlukan')->nullable();
             $table->string('nama_template');
             $table->timestamps();
         });

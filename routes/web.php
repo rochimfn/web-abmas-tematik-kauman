@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\SuratController;
+use App\Http\Controllers\WargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Rute untuk admin
+Route::middleware('auth', 'admin')->group(function() {
+	Route::get('/cetak/{id}', [SuratController::class, 'cetakSurat'])->name('cetak.surat');
+});
 
-Route::get('/warga/masuk', [UserController::class, 'citizenLoginForm'])->name('warga.masuk.formulir');
-Route::post('/warga/masuk', [UserController::class, 'citizenLogin'])->name('warga.masuk');
-Route::get('/warga/daftar', [UserController::class, 'citizenRegisterForm'])->name('warga.daftar.formulir');
-Route::post('/warga/daftar', [UserController::class, 'citizenRegister'])->name('warga.daftar');
-
+// Rute untuk warga
+Route::middleware('auth', 'warga')->group(function() {
+	Route::get('/beranda', [WargaController::class, 'beranda'])->name('beranda.warga');
+});
 
 Auth::routes(['register' => false]);
 

@@ -28,5 +28,5 @@ class IsianSurat extends Model
      *
      * @var array
      */
-    protected $fillable = ['nama_isian', 'jenis_surat_id'];
+    protected $fillable = ['nama_isian', 'jenis_surat_id', 'contoh_isian'];
 }

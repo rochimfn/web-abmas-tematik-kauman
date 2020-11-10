@@ -15,17 +15,25 @@ class SuratSeeder extends Seeder
     public function run()
     {
         $jenisSurat = [
-            [
-                'nama' => 'Surat Contoh',
-                'persyaratan' => 'KTP, KK, Surat pengatar RT, Pasangan hidup',
-                'nama_template' => 'example.docx'
-            ]
-        ];
+            'nama'               => 'Surat Contoh',
+            'persyaratan'        => 'KTP, KK, Surat pengatar RT, Pasangan hidup',
+            'nama_template'      => 'example.docx',
+            'biodata_diperlukan' => 'nama_lengkap;tempat_lahir;tanggal_lahir;jenis_kelamin',
+            'created_at'         => now(),
+            'updated_at'         => now()];
 
         $jenisSuratId = DB::table('jenis_surat')->insertGetId($jenisSurat);
 
         $isianSurat = [
-            []
+            [
+                'jenis_surat_id' => $jenisSuratId,
+                'nama_isian'     => 'keperluan',
+                'contoh_isian'   => 'Melamar Pekerjaan',
+                'created_at'     => now(),
+                'updated_at'     => now(),
+            ],
         ];
+
+        DB::table('isian_surat')->insert($isianSurat);
     }
 }

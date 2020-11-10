@@ -28,5 +28,19 @@ class PermintaanSurat extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'jenis_surat_id', 'sudah_diproses'];
+    protected $fillable = ['user_id', 'jenis_surat_id', 'status_surat'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id' ,'id');
+    }
+    public function isianPermintaanSurat()
+    {
+        return $this->hasMany('App\Models\IsianPermintaanSurat', 'permintaan_surat_id', 'permintaan_surat_id');
+    }
+
+    public function jenisSurat()
+    {
+        return $this->belongsTo('App\Models\JenisSurat', 'jenis_surat_id', 'jenis_surat_id');
+    }
 }
