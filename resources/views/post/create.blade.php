@@ -28,14 +28,14 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header" color:rgb(123, 104, 238)>{{ __('Buat Pemberitahuan Baru') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="form-group{{ $errors->has('post_judul') ? ' has-error' : '' }}">
-                                    <label for="post_judul" class="col-md-24 control-label">Judul</label>
+                                    <label for="post_judul" class="col-md-10 control-label">Judul</label>
                                     <div class="col-md-30">
                                         <input id="post_judul" type="text" class="form-control" name="post_judul" value="{{ old('post_judul') }}" required>
                                          @if ($errors->has('post_judul'))
@@ -46,8 +46,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group{{ $errors->has('post_isi') ? ' has-error' : '' }}">
-                                    <label for="post_isi" class="col-md-24 control-label">Isi Pemberitahuan</label>
-                                    <textarea id="post_isi" type="text" class="form-control" name="post_isi"  rows="12" value="{{ old('post_isi')}}" required></textarea>
+                                    <label for="post_isi" class="col-md-10 control-label">Isi Pemberitahuan</label>
+                                    <textarea id="post_isi" type="text" class="form-control" name="post_isi"  rows="15" value="{{ old('post_isi')}}" required></textarea>
                                     @if ($errors->has('post_isi'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('post_isi') }}</strong>

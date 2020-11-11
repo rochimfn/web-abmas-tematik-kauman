@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="row">
-  <div class="col-lg-3">
+  <div style="margin-left: 15px;"><h1>Pemberitahuan</h1></div>
+  <div class="col-lg-3" style="margin-left: 15px;">
     <a href="{{route('post.create')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
   </div>
-
+</div>
   <div class="col-lg-12">
     @if (Session::has('message'))
     <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
