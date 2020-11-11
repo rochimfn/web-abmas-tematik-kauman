@@ -52,7 +52,7 @@
 
 /* Info Panel */
 .info-panel{
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     margin-top: -75px;
     background-color: white;
@@ -74,7 +74,7 @@
 
 
 .panel {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin-top: 30px;
     background-color: white;
