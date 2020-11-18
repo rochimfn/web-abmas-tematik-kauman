@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="row">
-  <div style="margin-left: 15px;"><h1>Pemberitahuan</h1></div>
+  <div style="margin-left: 15px;"><h2>Pemberitahuan</h2></div>
   <div class="col-lg-3" style="margin-left: 15px;">
-    <a href="{{route('post.create')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
+    <a href="{{route('post.create')}}" class="btn btn-primary" style="padding: 2px;"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
   </div>
 </div>
   <div class="col-lg-12">
@@ -27,7 +27,7 @@
                     <th>Isi Pemberitahuan</th>
                     <th>Dibuat</th>
                     <th>Terakhir diedit</th>
-                    <th colspan="2" align="center">Action</th>
+                    <th colspan="3" align='center'>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,11 +35,11 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$post['post_judul']}}</td>
-                    <td>{{$post['post_isi']}}</td>
+                    <td class="isi">{{$post['post_isi']}}</td>
                     <td>{{date('d/m/y h:m', strtotime($post['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($post['updated_at']))}}</td>
-                    <td>
-                    <a href="{{route('post.edit', $post['post_id'])}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="{{route('post.show', $post['post_id'])}}" class="btn btn-info" ><i class="fas fa-eye"></i></a></td>
+                    <td><a href="{{route('post.edit', $post['post_id'])}}" class="btn btn-info" ><i class="fas fa-edit"></i></a></td>
                       <td><form method="POST" action="{{route('post.destroy', $post['post_id'])}}" >
                       {{ csrf_field() }}
                         <input name="_method" type="hidden" value="DELETE">

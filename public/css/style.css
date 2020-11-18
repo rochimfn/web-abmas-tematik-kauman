@@ -118,3 +118,12 @@
 .menu-item:hover{
     background-color:rgb(135, 206, 250);
 }
+
+/* Table Index*/
+td
+{
+ max-width: 100px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}

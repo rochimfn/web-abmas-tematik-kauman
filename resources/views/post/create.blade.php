@@ -55,9 +55,9 @@
                                     @endif
                                 </div>
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-8 offset-md-4">
+                                    <div class="col-md-8 offset-md-4" align='center'>
                                         <button type="submit" class="btn btn-primary" id="submit">Kirim</button>
-                                        <a href="{{route('post.index')}}" class="btn btn-light pull-right">Kembali</a>
+                                        <a href="{{route('post.index')}}" class="btn btn-secondary"> Kembali</a>
                                     </div>
                                 </div>
                         </form>

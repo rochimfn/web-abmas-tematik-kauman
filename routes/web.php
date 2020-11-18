@@ -41,3 +41,4 @@ Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->na
 Route::delete('/posts/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.destroy');
 Route::get('/posts/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 Route::post('/posts/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+Route::get('/posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
