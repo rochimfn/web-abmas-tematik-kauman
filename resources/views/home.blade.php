@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="row">
+<div class="row" style="margin-top: 50px; margin-left: 200px;">
   <div style="margin-left: 15px;"><h2>Dashboard</h2></div>
 </div>
-<div class="header bg-gradient-primary pb-3 pt-3 pt-md-3">
+<div class="header bg-gradient-primary pb-3 pt-3 pt-md-3" style="margin-left: 200px;">
 <div class="container-fluid" >
-    <div style="margin-left: 210px;"><h4 class="mb-3" >Statistika Permintaan Surat</h4></div>
+    <div><h4 class="mb-3" >Statistika Permintaan Surat</h4></div>
     <div class="header-body">
         <div class="row">
             <div class="col-xl-3 col-lg-6">

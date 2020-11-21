@@ -42,3 +42,6 @@ Route::delete('/posts/{id}', [App\Http\Controllers\PostController::class, 'destr
 Route::get('/posts/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 Route::post('/posts/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
 Route::get('/posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+
+Route::get('/user/tambah', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+Route::post('/user/tambah', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');

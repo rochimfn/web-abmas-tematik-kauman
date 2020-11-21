@@ -23,10 +23,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
     <div id="app">
         <nav class="navbar navbar-expand-md  shadow-sm">
             <div class="container">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -74,35 +79,57 @@
                 </div>
             </div>
         </nav>
-
+       
         <main class="py-4" container-fluid>
-            <div id="sidebar" class="sidebar float-left">
-                <div class="text-center">
-                <i class="fas fa-user-circle fa-5x"></i>
-                    <h5> {{ Auth::user()->username }}</h5>
+            <aside>
+                <div id="sidebar" class="sidebar float-left">
+                    <div class="text-center">
+                        <i class="fas fa-user-circle fa-5x"></i>
+                        <h5> {{ Auth::user()->username }}</h5>
+                        <hr>
+                    </div>
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <a href="{{ route('home')}}" class="nav-link ">
+                                    <p><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">    
+                                <a href="#" class="nav-link">
+                                    <p><i class="nav-icon fas fa-mail-bulk"></i> Permintaan Surat</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('post.index')}}" class="nav-link">
+                                    <p><i class="nav-icon fas fa-scroll"></i> Pemberitahuan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="{{route('user.create')}}" class="nav-link">
+                                    <p><i class="nav-icon fas fa-user-plus"></i> Tambah Admin</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="#" class="nav-link">
+                                    <p><i class="nav-icon fas fa-users-cog"></i> Reset Password        Warga</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="items-container">
-                    <a href="{{ route('home')}}">
-                        <h6 class="menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</h6>
-                    </a>
-                    <a href="#">
-                        <h6 class="menu-item"><i class="fas fa-mail-bulk"></i></i> Permintaan Surat</h6>
-                    </a>
-                    <a href="{{ route('post.index')}}">
-                        <h6 class="menu-item"><i class="fas fa-scroll"></i> Pemberitahuan</h6>
-                    </a>
-                    <a href="#">
-                        <h6 class="menu-item"><i class="fas fa-user-plus"></i> Tambah Admin</h6>
-                    </a>
-                    <a href="#">
-                        <h6 class="menu-item"><i class="fas fa-users-cog"></i> Reset Password Warga</h6>
-                    </a>
+            
+                <div class="content">
+                    @yield('content')
                 </div>
-            </div>
-            <div class="content">
-                @yield('content')
-            </div>
+            </aside>
         </main>
+        
+        <footer class="footer">
+            <div class="text-center">
+                <p>Copyright © 2020 Desa Kauman</p>
+            </div>
+        </footer>
     </div>
 </body>
 

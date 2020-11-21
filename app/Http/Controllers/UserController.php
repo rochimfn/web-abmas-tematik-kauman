@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\User;
 
-class PostController extends Controller
+class UserController extends Controller
 {
-    
     public function index()
     {
-        $posts = Post::paginate(10);
-        return view('post.index', compact('posts'));
+        //
     }
     /**
      * Show the form for creating a new resource.
@@ -20,7 +18,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        return view('user.create');
     }
 
     /**
@@ -31,12 +29,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = $this->validate(request(),[
-            'post_judul' => 'required',
-            'post_isi' => 'required'
+        $user = $this->validate(request(),[
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'is_admin' => 'required'
         ]);
-        Post::create($post);
-        return redirect()->route('post.index')->with('success', 'Pemberitahuan berhasil dikirim');;
+        User::create($user);
+        return redirect()->route('user.create')->with('success', 'Admin berhasil ditambahkan');;
     }
 
     /**
@@ -47,8 +47,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        return view('post.show', compact('post','id'));
+        //
     }
 
     /**
@@ -59,8 +58,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('post.edit', compact('post','id'));
+    //
     }
 
     /**
@@ -72,15 +70,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
-        $this->validate(request(), [
-            'post_judul' => 'required',
-            'post_isi' => 'required',
-            ]);
-            $post->post_judul = $request->get('post_judul');
-            $post->post_isi = $request->get('post_isi');
-            $post->save();
-            return redirect()->route('post.index')->with('success', 'Pemberitahuan berhasil diupdate');
+     //
     }
 
     /**
@@ -91,9 +81,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-        $post->delete();
-        return redirect()->route('post.index')->with('success','Pemberitahuan berhasil dihapus');
-      
+     // 
     }
 }

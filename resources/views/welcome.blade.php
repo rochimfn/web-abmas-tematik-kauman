@@ -48,7 +48,7 @@
         </nav>
         
 
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" >
             <div class="container">
                 <h1 class="display-4">Pelayanan Surat<br>Desa Kauman</h1>
             </div>
@@ -58,7 +58,9 @@
         <!-- Info Panel -->
             <div class="row justify-content-center">
                 <div class="col-12 info-panel">
+                <h3>Pemberitahuan</h3> <hr color="black">
                     <div class="row">
+                    
                         <div class="col-lg">
                             <h4>Pengumuman 1</h4>
                             <p>Lorem ipsum dolor sit amet.</p>
@@ -67,16 +69,32 @@
                             <h4>Pengumuman 2</h4>
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
+                        <!-- <div class="col-lg">
+                            <h4>Pengumuman 3</h4>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>                 -->
+                    </div><hr>
+                    <div class="row">
+                    
                         <div class="col-lg">
                             <h4>Pengumuman 3</h4>
                             <p>Lorem ipsum dolor sit amet.</p>
-                        </div>                
-                    </div>
+                        </div>
+                        <div class="col-lg">
+                            <h4>Pengumuman 4</h4>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>    
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 panel">
                     <div id="chartSurat"></div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="text-center">
+                    <p>Copyright © 2020 Desa Kauman</p>
                 </div>
             </div>
         </div>
@@ -143,5 +161,6 @@
             }]
         });
     </script>
+
     </body>
 </html>

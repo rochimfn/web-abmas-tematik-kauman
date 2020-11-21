@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="row">
+<div class="row" style="margin-top: 50px; margin-left: 200px;">
   <div style="margin-left: 15px;"><h2>Pemberitahuan</h2></div>
   <div class="col-lg-3" style="margin-left: 15px;">
     <a href="{{route('post.create')}}" class="btn btn-primary" style="padding: 2px;"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
@@ -13,7 +13,7 @@
     @endif
   </div>
 </div>
-<div class="row" style="margin-top: 20px;">
+<div class="row" style="margin-top: 20px; margin-left: 200px;">
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
        <div class="card-body">
@@ -22,12 +22,12 @@
               <table class="table table-striped" id="tabel">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Judul</th>
-                    <th>Isi Pemberitahuan</th>
-                    <th>Dibuat</th>
-                    <th>Terakhir diedit</th>
-                    <th colspan="3" align='center'>Action</th>
+                    <th width="50px">No</th>
+                    <th width="250px">Judul</th>
+                    <th width="600px">Isi Pemberitahuan</th>
+                    <th width="150px">Dibuat</th>
+                    <th width="150px">Terakhir diedit</th>
+                    <th colspan="3">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,13 +38,13 @@
                     <td class="isi">{{$post['post_isi']}}</td>
                     <td>{{date('d/m/y h:m', strtotime($post['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($post['updated_at']))}}</td>
-                    <td><a href="{{route('post.show', $post['post_id'])}}" class="btn btn-info" ><i class="fas fa-eye"></i></a></td>
-                    <td><a href="{{route('post.edit', $post['post_id'])}}" class="btn btn-info" ><i class="fas fa-edit"></i></a></td>
-                      <td><form method="POST" action="{{route('post.destroy', $post['post_id'])}}" >
-                      {{ csrf_field() }}
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-info" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
-                      </form>
+                    <td><a href="{{route('post.show', $post['post_id'])}}" class="btn btn-info btn-circle" ><i class="fas fa-eye"></i></a></td>
+                    <td><a href="{{route('post.edit', $post['post_id'])}}" class="btn btn-info btn-circle" ><i class="fas fa-edit"></i></a></td>
+                    <td>    <form method="POST" action="{{route('post.destroy', $post['post_id'])}}" >
+                        {{ csrf_field() }}
+                          <input name="_method" type="hidden" value="DELETE">
+                          <a class="btn btn-danger btn-circle" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></a>
+                        </form>
                     </td>
                     @endforeach
                 </tbody>
