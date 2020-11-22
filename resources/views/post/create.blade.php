@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-5 offset-md-4" align='center'>
-                                        <button type="submit" class="btn btn-primary" id="submit">Kirim</button>
+                                        <button type="submit" class="btn btn-primary" id="submit" data-toggle="modal" data-target="#createpost_modal">Kirim</button>
                                         <a href="{{route('post.index')}}" class="btn btn-secondary"> Kembali</a>
                                     </div>
                                 </div>
@@ -65,5 +65,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="createpost_modal" class="modal fade" role="dialog" style="margin-top: 150px;">
+		<div class="modal-dialog">
+			<!-- konten modal-->
+			<div class="modal-content">
+				<!-- heading modal -->
+				<div class="modal-header">
+                    <h4 class="modal-title">Pemberitahuan Berhasil Dikirim</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- body modal -->
+				<div class="modal-body">
+					<p>Pemberitahuan telah berhasil dikirim, kini admin dan warga dapat melihat pemberitahuan tersebut pada halaman pertama aplikasi.</p>
+				</div>
+				<!-- footer modal -->
+				
+			</div>
+		</div>
+    </div>
+    
 </div>
 @endsection

@@ -40,11 +40,11 @@ var check = function() {
 @extends('layouts.admin')
 
 @section('content')
-<div class="container" style="margin-top: 50px;">
+<div class="container" style="margin-top: 100px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Tambah Admin') }}</div>
+                <div class="card-header">{{ __('Penambahan Admin Baru') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.create') }}">
@@ -80,7 +80,7 @@ var check = function() {
                         <div class="form-group row">
                             <label for="is_admin" class="col-md-4 col-form-label text-md-right">{{ __('Admin') }}</label>
                             <div class="col-md-6">
-                                <select class="form-control" name="is_admin">
+                                <select class="form-control" name="is_admin" required>
                                     <option value=""></option>
                                     <option value="1">admin</option>
                                 </select>
@@ -113,7 +113,7 @@ var check = function() {
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#usermodal">
                                     {{ __('Tambahkan Admin') }}
                                 </button>
                             </div>
@@ -123,6 +123,28 @@ var check = function() {
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="usermodal" class="modal fade" role="dialog" style="margin-top: 150px;">
+		<div class="modal-dialog">
+			<!-- konten modal-->
+			<div class="modal-content">
+				<!-- heading modal -->
+				<div class="modal-header">
+                    <h4 class="modal-title">Penambahan Admin Baru Berhasil</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- body modal -->
+				<div class="modal-body">
+					<p>Akun admin baru berhasil dibuat. Admin baru dapat login dengan username dan password yang telah dibuat.</p>
+				</div>
+				<!-- footer modal -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
