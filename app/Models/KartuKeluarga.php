@@ -29,4 +29,11 @@ class KartuKeluarga extends Model
      * @var array
      */
     protected $fillable = ['no_kk', 'alamat'];
+
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
 }

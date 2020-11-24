@@ -2,12 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PermintaanSurat;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
 use \PhpOffice\PhpWord\Exception\CopyFileException;
+
+use App\Models\IsianPermintaanSurat;
+use App\Models\JenisSurat;
+use App\Models\PermintaanSurat;
 
 class SuratController extends Controller
 {
+    public function ajukanSuratForm($id)
+    {
+        $jenisSurat = JenisSurat::with('isianSurat')->findOrFail($id);
+        return view('warga.pengajuan')->with(['jenisSurat' => $jenisSurat]);
+    }
+
+    public function ajukanSurat(Request $request, $id)
+    {
+        $jenisSurat = JenisSurat::findOrFail($id);
+        $permintaanSurat = new PermintaanSurat(['user_id' => $request->user()->id]);
+
+        $data = $request->except('_token');
+        $isianPermintaanSurat = [];
+        foreach ($data as $key => $value) {
+            array_push($isianPermintaanSurat, new IsianPermintaanSurat(
+                ['nama_isian' => $key, 'nilai_isian' => $value]
+            ));
+        }
+        if ($isianPermintaanSurat) {
+            $jenisSurat->isianSurat()->save($permintaanSurat)->isianPermintaanSurat()->saveMany($isianPermintaanSurat);
+        } else {
+            $jenisSurat->isianSurat()->save($permintaanSurat);
+        }
+
+        return redirect()->route('beranda.warga')->with('success', ['Berhasil diajukan, surat akan segera diproses.']);
+    }
     public function cetakSurat($id)
     {
         $permintaanSurat = PermintaanSurat::with(
@@ -57,10 +88,11 @@ class SuratController extends Controller
         }
 
         $templateProcessor->saveAs(storage_path('app/surat/output.docx'));
+        $permintaanSurat['status_surat'] = 'sedang diproses';
+        $permintaanSurat->save();
         return Storage::download(
             'surat/output.docx',
             date('Y-m-d') . '_' . $jenisSurat['nama'] . '_' . $permintaanSurat['user']['biodata']['nama_lengkap'] . '.docx'
         );
-
     }
 }

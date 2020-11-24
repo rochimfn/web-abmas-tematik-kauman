@@ -20,13 +20,14 @@ class SuratSeeder extends Seeder
             'nama_template'      => 'example.docx',
             'biodata_diperlukan' => 'nama_lengkap;tempat_lahir;tanggal_lahir;jenis_kelamin',
             'created_at'         => now(),
-            'updated_at'         => now()];
+            'updated_at'         => now()
+        ];
 
-        $jenisSuratId = DB::table('jenis_surat')->insertGetId($jenisSurat);
+        DB::table('jenis_surat')->insert($jenisSurat);
 
         $isianSurat = [
             [
-                'jenis_surat_id' => $jenisSuratId,
+                'jenis_surat_id' => 1,
                 'nama_isian'     => 'keperluan',
                 'contoh_isian'   => 'Melamar Pekerjaan',
                 'created_at'     => now(),
