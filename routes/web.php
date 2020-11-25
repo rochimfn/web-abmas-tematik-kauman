@@ -17,17 +17,19 @@ use App\Http\Controllers\WargaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 // Rute untuk admin
-Route::middleware('auth', 'admin')->group(function() {
+Route::middleware('auth', 'admin')->group(function () {
 	Route::get('/cetak/{id}', [SuratController::class, 'cetakSurat'])->name('cetak.surat');
 });
 
 // Rute untuk warga
-Route::middleware('auth', 'warga')->group(function() {
+Route::middleware('auth', 'warga')->group(function () {
 	Route::get('/beranda', [WargaController::class, 'beranda'])->name('beranda.warga');
+	Route::get('/ajukan/{id}', [SuratController::class, 'ajukanSuratForm'])->name('ajukan.warga');
+	Route::post('/ajukan/{id}', [SuratController::class, 'ajukanSurat'])->name('ajukan.surat.warga');
 });
 
 Auth::routes(['register' => false]);

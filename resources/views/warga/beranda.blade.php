@@ -82,7 +82,7 @@
     jenisSurat.addEventListener('change', () => {
         nodePersyaratan.textContent = null;
         linkPengajuan.classList.remove('disabled');
-        linkPengajuan.href = 'ohayo'
+        linkPengajuan.href = "{{route('ajukan.warga', 1)}}".replace("1", jenisSurat.value);
         if(persyaratan[jenisSurat.value]) {   
             persyaratan[jenisSurat.value].forEach( (item) => {
                 let node = document.createElement("li");
