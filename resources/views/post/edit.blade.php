@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group{{ $errors->has('post_isi') ? ' has-error' : '' }}">
                                     <label for="post_isi" class="col-md-10 control-label">Isi Pemberitahuan</label>
-                                    <textarea id="post_isi" type="text" class="form-control" name="post_isi" rows="15" value="{{$post->post_isi}}" required></textarea>
+                                    <textarea rows="15" id="post_isi" type="text" class="form-control" name="post_isi"  required>{{$post->post_isi}}</textarea>
                                     @if ($errors->has('post_isi'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('post_isi') }}</strong>
