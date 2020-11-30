@@ -23,13 +23,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini">    
     <div id="app">
         <nav class="navbar navbar-expand-md  shadow-sm">
             <div class="container">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button" onclick="menu_open()"><i class="fas fa-bars"></i></a>
                     </li>
                 </ul>
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -89,9 +89,9 @@
                         <hr>
                     </div>
                     <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <ul class="nav nav-pills  flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item">
-                                <a href="{{ route('home')}}" class="nav-link ">
+                                <a href="{{ route('home')}}" class="nav-link {{ 'home' == request()->path() ? 'active' : '' }}">
                                     <p><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</p>
                                 </a>
                             </li>
@@ -101,18 +101,18 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('post.index')}}" class="nav-link">
+                                <a href="{{ route('post.index')}}" class="nav-link {{ 'posts' == request()->path() ? 'active' : '' }}">
                                     <p><i class="nav-icon fas fa-scroll"></i> Pemberitahuan</p>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{{route('user.create')}}" class="nav-link">
+                                <a href="{{route('user.create')}}" class="nav-link {{ 'user/tambah' == request()->path() ? 'active' : '' }}">
                                     <p><i class="nav-icon fas fa-user-plus"></i> Tambah Admin</p>
                                 </a>
                             </li>
                             <li class="nav-item ">
                                 <a href="#" class="nav-link">
-                                    <p><i class="nav-icon fas fa-users-cog"></i> Reset Password        Warga</p>
+                                    <p><i class="nav-icon fas fa-users-cog"></i> Reset Password Warga</p>
                                 </a>
                             </li>
                         </ul>
@@ -131,6 +131,16 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        function menu_open() {
+            document.getElementById("sidebar").style.display = "block";
+        }
+
+        function menu_close() {
+        document.getElementById("sidebar").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
