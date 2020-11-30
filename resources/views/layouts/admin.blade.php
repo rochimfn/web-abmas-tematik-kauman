@@ -27,11 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#" role="button" onclick="menu_open()"><i class="fas fa-bars"></i></a>
-                    </li>
-                </ul>
+                
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -89,30 +85,30 @@
                         <hr>
                     </div>
                     <nav class="mt-2">
-                        <ul class="nav nav-pills  flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <ul class="nav nav-pills  flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('home')}}" class="nav-link {{ 'home' == request()->path() ? 'active' : '' }}">
-                                    <p><i class="nav-icon fas fa-tachometer-alt"></i> Dashboard</p>
+                                    <i class="nav-icon fas fa-tachometer-alt"></i> <span>Dashboard</span>
                                 </a>
                             </li>
                             <li class="nav-item ">    
                                 <a href="{{ route('psurat.index')}}" class="nav-link {{ 'psurats' == request()->path() ? 'active' : '' }}">
-                                    <p><i class="nav-icon fas fa-mail-bulk"></i> Permintaan Surat</p>
+                                    <i class="nav-icon fas fa-mail-bulk"></i> <span>Permintaan Surat</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('post.index')}}" class="nav-link {{ 'posts' == request()->path() ? 'active' : '' }}">
-                                    <p><i class="nav-icon fas fa-scroll"></i> Pemberitahuan</p>
+                                    <i class="nav-icon fas fa-scroll"></i> <span>Pemberitahuan</span>
                                 </a>
                             </li>
                             <li class="nav-item ">
                                 <a href="{{route('user.create')}}" class="nav-link {{ 'user/tambah' == request()->path() ? 'active' : '' }}">
-                                    <p><i class="nav-icon fas fa-user-plus"></i> Tambah Admin</p>
+                                    <i class="nav-icon fas fa-user-plus"></i> <span>Tambah Admin</span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="#" class="nav-link">
-                                    <p><i class="nav-icon fas fa-users-cog"></i> Reset Password Warga</p>
+                                <a href="#" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-users-cog"></i> <span>Reset Password Warga</span>
                                 </a>
                             </li>
                         </ul>
@@ -132,15 +128,6 @@
         </footer>
     </div>
 
-    <script>
-        function menu_open() {
-            document.getElementById("sidebar").style.display = "block";
-        }
-
-        function menu_close() {
-        document.getElementById("sidebar").style.display = "none";
-        }
-    </script>
 </body>
 
 </html>
