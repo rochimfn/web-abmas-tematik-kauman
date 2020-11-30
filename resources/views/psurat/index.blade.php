@@ -2,10 +2,7 @@
 
 @section('content')
 <div class="row" style="margin-top: 50px; margin-left: 200px;">
-  <div style="margin-left: 15px;"><h2>Pemberitahuan</h2></div>
-  <div class="col-lg-3" style="margin-left: 15px;">
-    <a href="{{route('post.create')}}" class="btn btn-primary" style="padding: 2px;"><i class="fas fa-plus"></i> Buat Pemberitahuan Baru </a>
-  </div>
+  <div style="margin-left: 15px;"><h2>Permintaan Surat</h2></div>
 </div>
   <div class="col-lg-12">
     @if (Session::has('message'))
@@ -17,7 +14,7 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
        <div class="card-body">
-          <h4 class="card-title">Semua Pemberitahuan</h4>
+          <h4 class="card-title">Semua Surat</h4>
             <div class="table-responsive">
               <table class="table table-bordered table-hover" id="tabel">
                 <thead>
