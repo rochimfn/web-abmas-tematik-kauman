@@ -24,7 +24,7 @@
                     <th width="200px" style="text-align: center;">Jenis Surat</th>
                     <th width="300px" style="text-align: center;">Status Surat</th>
                     <th width="150px" style="text-align: center;">Dibuat</th>
-                    <th width="150px" style="text-align: center;">Terakhir diedit</th>
+                    <th width="150px" style="text-align: center;">Terakhir direview</th>
                     <th colspan="3" style="text-align: center;">Action</th>
                   </tr>
                 </thead>

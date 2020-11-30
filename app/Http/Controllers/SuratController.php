@@ -95,4 +95,11 @@ class SuratController extends Controller
             date('Y-m-d') . '_' . $jenisSurat['nama'] . '_' . $permintaanSurat['user']['biodata']['nama_lengkap'] . '.docx'
         );
     }
+    public function index()
+    {
+        $psurats = PermintaanSurat::paginate(10);
+        $jenisSurat = JenisSurat::paginate(10);
+        $isianPermintaanSurat = IsianPermintaanSUrat::paginate(10);
+        return view('psurat.index', compact('psurats'));
+    }
 }

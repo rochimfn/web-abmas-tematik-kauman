@@ -25,7 +25,7 @@ Route::middleware('auth', 'admin')->group(function () {
 	Route::get('/cetak/{id}', [SuratController::class, 'cetakSurat'])->name('cetak.surat');
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-	Route::get('/psurats', [App\Http\Controllers\PSuratController::class, 'index'])->name('psurat.index');
+	Route::get('/psurats', [App\Http\Controllers\SuratController::class, 'index'])->name('psurat.index');
 	Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
 	Route::get('/posts/buat', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
 	Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
