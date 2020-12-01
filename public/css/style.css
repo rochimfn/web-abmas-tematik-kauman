@@ -5,7 +5,7 @@
     position: fixed;
     width: 100%;
     z-index: 1;
-    background-color: rgb(100, 149, 237);;
+    background-color: rgb(100, 149, 237);
 }
 .navbar-brand {
     color: white;
@@ -98,23 +98,19 @@
     top: 50px;
 }
 
-
 .sidebar h5{
     color: white;
     margin-top: 10px;
 }
 
-.items-container a{
-    text-decoration: none;
-    color: white;
-
+.sidebar a{
+    line-height: 30px;
 }
-
 
 .active{
-    background-color:rgb(135, 206, 250);
-    
+    background-color: rgb(100, 149, 237);
 }
+
 
 /* Table Index*/
 td{
