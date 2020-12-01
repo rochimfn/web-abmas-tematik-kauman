@@ -22,6 +22,7 @@
                     <th width="50px" style="text-align: center;">No</th>
                     <th width="200px" style="text-align: center;">User</th>
                     <th width="200px" style="text-align: center;">Jenis Surat</th>
+                    <th width="200px" style="text-align: center;">Isian Surat</th>
                     <th width="300px" style="text-align: center;">Status Surat</th>
                     <th width="150px" style="text-align: center;">Dibuat</th>
                     <th width="150px" style="text-align: center;">Terakhir direview</th>
@@ -32,8 +33,9 @@
                   @foreach($psurats as $permintaan_surat)
                   <tr>
                     <td class="Idr">{{$permintaan_surat['permintaan_surat_id']}}</td>
-                    <td class="User">{{$permintaan_surat['user_id']}}</td>
-                    <td class="Jenis">{{$permintaan_surat['jenis_surat_id']}}</td>
+                    <td class="User">{{$permintaan_surat->user->biodata->nama_lengkap}}</td>
+                    <td class="Jenis">{{$permintaan_surat->jenisSurat->nama}}</td>
+                    <td class="Jenis">{{$permintaan_surat->isianPermintaanSurat->nama_isian}}</td>
                     <td class="Status">{{$permintaan_surat['status_surat']}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['updated_at']))}}</td>
