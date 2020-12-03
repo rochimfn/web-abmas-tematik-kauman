@@ -22,8 +22,6 @@
                     <th style="text-align: center;">No</th>
                     <th style="text-align: center;">Pemohon</th>
                     <th style="text-align: center;">Jenis Surat</th>
-                    <th style="text-align: center;">Isian Surat</th>
-                    <th style="text-align: center;">Isi</th>
                     <th style="text-align: center;">Dibuat</th>
                     <th style="text-align: center;">Terakhir direview</th>
                     <th colspan="3" style="text-align: center;">Action</th>
@@ -36,8 +34,6 @@
                     <td class="Idr">{{$permintaan_surat['permintaan_surat_id']}}</td>
                     <td class="User">{{$permintaan_surat->user->biodata->nama_lengkap}}</td>
                     <td class="Jenis">{{$permintaan_surat->jenisSurat->nama}}</td>
-                    <td class="Nama Isian">{{$permintaan_surat->isianPermintaanSurat->nama_isian}}</td>
-                    <td class="Nama Isian">{{$permintaan_surat->isianPermintaanSurat->nilai_isian}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['updated_at']))}}</td>
                     <td align='center'><a href="{{route('psurat.informasi', $permintaan_surat['permintaan_surat_id'])}}" class="btn btn-info" >Informasi</a></td>

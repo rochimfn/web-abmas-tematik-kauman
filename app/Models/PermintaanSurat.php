@@ -36,7 +36,7 @@ class PermintaanSurat extends Model
     }
     public function isianPermintaanSurat()
     {
-        return $this->hasOne('App\Models\IsianPermintaanSurat', 'permintaan_surat_id', 'permintaan_surat_id');
+        return $this->hasMany('App\Models\IsianPermintaanSurat', 'permintaan_surat_id', 'permintaan_surat_id');
     }
 
     public function jenisSurat()

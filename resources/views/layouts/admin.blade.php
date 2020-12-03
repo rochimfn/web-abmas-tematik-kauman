@@ -99,6 +99,8 @@
                                 <a class="dropdown-item" href="{{ route('psurat.index')}}">Semua Surat</a>
                                 <a class="dropdown-item" href="{{ route('psurat.diajukan')}}">Belum di proses </a>
                                 <a class="dropdown-item" href="{{ route('psurat.diproses')}}">Sedang di Proses</a>
+                                <a class="dropdown-item" href="{{ route('psurat.ditolak')}}">Ditolak</a>                                
+                                <a class="dropdown-item" href="{{ route('psurat.selesai')}}">Selesai</a>
                                 </div>
                             </li>
                             <li class="nav-item">

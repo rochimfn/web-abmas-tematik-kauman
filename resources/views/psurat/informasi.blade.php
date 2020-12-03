@@ -55,7 +55,7 @@
                             <div class="col">
                                 <!-- <h5 class="card-stats-title">Jenis Surat</h5> -->
                                 <div class="card-stats-item">
-                                    <div>Subjeck Surat : {{$psurats->isianPermintaanSurat->nama_isian}}</div><hr>
+                                    <div>Persyaratan : {{$psurats->jenisSurat->persyaratan}}</div><hr>
                                 </div>
                             </div>
                         </div>
@@ -63,17 +63,25 @@
                             <div class="col">
                                 <!-- <h5 class="card-stats-title">Isi Pemberitahuan</h5> -->
                                 <div class="card-stats-item">
-                                    <div>Persyaratan:</div>
-                                    <div>{{$psurats->jenisSurat->persyaratan}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <!-- <h5 class="card-stats-title">Isi Pemberitahuan</h5> -->
-                                <div class="card-stats-item">
-                                    <div>Isi Surat:</div>
-                                    <div>{{$psurats->isianPermintaanSurat->nilai_isian}}</div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover" id="tabel">
+                                        <thead>
+                                        <tr class="table-primary">
+                                            <th style="text-align: center;">No</th>
+                                            <th style="text-align: center;">Nama Isian</th>
+                                            <th style="text-align: center;">Isian</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($isianPermintaanSurats as $object)
+                                        <tr>
+                                            <td class="Idr">{{$object['isian_permintaan_surat_id']}}</td>
+                                            <td class="NamaUser">{{$object['nama_isian']}}</td>
+                                            <td class="Isian">{{$object['nilai_isian']}}</td>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
