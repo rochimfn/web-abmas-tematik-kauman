@@ -27,7 +27,7 @@
                     <th style="text-align: center;">Status Surat</th>
                     <th style="text-align: center;">Dibuat</th>
                     <th style="text-align: center;">Terakhir direview</th>
-                    <th colspan="3" style="text-align: center;">Action</th>
+                    <th colspan="2" style="text-align: center;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,13 +41,11 @@
                     <td class="Status">{{$permintaan_surat['status_surat']}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['updated_at']))}}</td>
-                    <td><a href="{{route('psurat.show', $permintaan_surat['permintaan_surat_id'])}}" class="btn btn-info btn-circle" ><i class="fas fa-eye"></i></a></td>
-                    <td><a href="{{route('psurat.edit', $permintaan_surat['permintaan_surat_id'])}}" class="btn btn-info btn-circle" ><i class="fas fa-edit"></i></a>
-                        </td>
-                    <td>    <form method="POST" action="{{route('psurat.destroy', $permintaan_surat['permintaan_surat_id'])}}" >
+                    <td align='center'><a href="{{route('psurat.show', $permintaan_surat['permintaan_surat_id'])}}" class="btn btn-info" >Informasi</a></td>
+                    <td align='center'>    <form method="POST" action="{{route('psurat.destroy', $permintaan_surat['permintaan_surat_id'])}}" >
                         {{ csrf_field() }}
                           <input name="_method" type="hidden" value="DELETE">
-                          <button class="btn btn-danger btn-circle" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</i></button>
                         </form>
                     </td>
                     @endforeach

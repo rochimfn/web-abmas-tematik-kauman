@@ -28,7 +28,6 @@ Route::middleware('auth', 'admin')->group(function () {
 	Route::get('/psurats', [App\Http\Controllers\SuratController::class, 'index'])->name('psurat.index');
 	Route::get('/psurats/show/{id}', [App\Http\Controllers\SuratController::class, 'show'])->name('psurat.show');
 	Route::delete('/psurats/{id}', [App\Http\Controllers\SuratController::class, 'destroy'])->name('psurat.destroy');
-	Route::get('/psurat/edit/{id}', [App\Http\Controllers\SuratController::class, 'edit'])->name('psurat.edit');
 	Route::post('/psurat/{id}', [App\Http\Controllers\SuratController::class, 'update'])->name('psurat.update');
 
 	Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');

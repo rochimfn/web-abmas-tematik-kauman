@@ -126,10 +126,4 @@ class SuratController extends Controller
             $psurats->save();
             return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
     }
-    public function edit($id)
-    {
-        $psurats = PermintaanSurat::find($id);
-        return view('psurat.edit', compact('psurats','id'));
-
-    }
 }
