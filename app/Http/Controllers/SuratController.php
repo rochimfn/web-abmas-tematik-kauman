@@ -87,7 +87,7 @@ class SuratController extends Controller
             }
         }
 
-        $templateProcessor->saveAs(storage_path('app/surat/output.docx'));
+        $templateProcessor->saveAs(storage_path(join(DIRECTORY_SEPARATOR, ['app', 'surat', 'output.docx'])));
         $permintaanSurat['status_surat'] = 'sedang diproses';
         $permintaanSurat->save();
         return Storage::download(
@@ -115,7 +115,7 @@ class SuratController extends Controller
         $jenisSurat = JenisSurat::paginate(10);
         $isianPermintaanSurat = IsianPermintaanSUrat::paginate(10);
         return view('psurat.ditolak', compact('psurats'));
-    }    
+    }
     public function selesai()
     {
         $psurats = PermintaanSurat::paginate(10);
@@ -134,7 +134,7 @@ class SuratController extends Controller
     {
         $psurats = PermintaanSurat::find($id);
         $isianPermintaanSurats = IsianPermintaanSurat::where('permintaan_surat_id', $id)->get();
-        return view('psurat.show', compact('isianPermintaanSurats','id','psurats'));
+        return view('psurat.show', compact('isianPermintaanSurats', 'id', 'psurats'));
     }
     public function destroy($id)
     {
@@ -142,53 +142,52 @@ class SuratController extends Controller
         $isianSurats->delete();
         $psurats = PermintaanSurat::findOrFail($id);
         $psurats->delete();
-        return redirect()->route('psurat.index')->with('success','Pemberitahuan berhasil dihapus');
-      
+        return redirect()->route('psurat.index')->with('success', 'Pemberitahuan berhasil dihapus');
     }
     public function update(Request $request, $id)
     {
         $psurats = PermintaanSurat::findOrFail($id);
         $this->validate(request(), [
             'status_surat' => 'required',
-            ]);
-            $psurats->status_surat = $request->get('status_surat');
-            $psurats->save();
-            return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
+        ]);
+        $psurats->status_surat = $request->get('status_surat');
+        $psurats->save();
+        return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
     }
     public function informasi($id)
     {
         $psurats = PermintaanSurat::find($id);
         $isianPermintaanSurats = IsianPermintaanSurat::where('permintaan_surat_id', $id)->get();
-        return view('psurat.informasi', compact('isianPermintaanSurats','id','psurats'));
+        return view('psurat.informasi', compact('isianPermintaanSurats', 'id', 'psurats'));
     }
     public function prosesSurat(Request $request, $id)
     {
         $psurats = PermintaanSurat::findOrFail($id);
         $this->validate(request(), [
             'status_surat' => 'required',
-            ]);
-            $psurats->status_surat = $request->get('status_surat');
-            $psurats->save();
-            return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
+        ]);
+        $psurats->status_surat = $request->get('status_surat');
+        $psurats->save();
+        return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
     }
     public function tolakSurat(Request $request, $id)
     {
         $psurats = PermintaanSurat::findOrFail($id);
         $this->validate(request(), [
             'status_surat' => 'required',
-            ]);
-            $psurats->status_surat = $request->get('status_surat');
-            $psurats->save();
-            return redirect()->route('psurat.index')->with('success', 'Surat telah ditolak');
+        ]);
+        $psurats->status_surat = $request->get('status_surat');
+        $psurats->save();
+        return redirect()->route('psurat.index')->with('success', 'Surat telah ditolak');
     }
     public function selesaiSurat(Request $request, $id)
     {
         $psurats = PermintaanSurat::findOrFail($id);
         $this->validate(request(), [
             'status_surat' => 'required',
-            ]);
-            $psurats->status_surat = $request->get('status_surat');
-            $psurats->save();
-            return redirect()->route('psurat.index')->with('success', 'Surat telah selesai');
+        ]);
+        $psurats->status_surat = $request->get('status_surat');
+        $psurats->save();
+        return redirect()->route('psurat.index')->with('success', 'Surat telah selesai');
     }
 }
