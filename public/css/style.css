@@ -107,6 +107,10 @@
     line-height: 30px;
 }
 
+.sidebar i{
+    padding: 5px;
+}
+
 .active{
     background-color: rgb(100, 149, 237);
 }
