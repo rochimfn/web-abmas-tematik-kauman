@@ -63,7 +63,7 @@
                             <div class="col">
                                 <!-- <h5 class="card-stats-title">Isi Pemberitahuan</h5> -->
                                 <div class="card-stats-item">
-                                    <div class="table-responsive">
+                                <div class="table-responsive">
                                     <table class="table table-bordered table-hover" id="tabel">
                                         <thead>
                                         <tr class="table-primary">
@@ -85,34 +85,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                        
+                        <form method="POST" align='center' action="{{route('psurat.destroy', $psurats['permintaan_surat_id'])}}" >
+                        {{ csrf_field() }}
+                          <input name="_method" type="hidden" value="DELETE">
+                          <button class="btn btn-danger" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</button>
+                        </form>
                     </div>
                 </div>
-            <div class="card">
-                <div class="card-header" color:rgb(123, 104, 238)>{{ __('Edit Status Surat') }}</div>
-                    <div class="card-body">
-                        <form method="post" action="{{route('psurat.update',  $psurats['permintaan_surat_id'])}}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                                <div class="form-group{{ $errors->has('status_surat') ? ' has-error' : '' }}">
-                                <select class="form-control" name="status_surat" required>
-                                    <option value="sedang diproses">sedang diproses</option>
-                                    <option value="diajukan">diajukan</option>
-                                    <option value="ditolak">ditolak</option>
-                                    <option value="selesai">selesai</option>
-                                </select>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col" align='center'>
-                                        <button type="submit" class="btn btn-primary" id="submit">Update</button>
-                                        <button  href="{{route('psurat.index')}}" class="btn btn-secondary">Kembali</button>
-
-                                    </div>
-                                </div>
-                        </form>
-
-                    </div>
-            </div>
         </div>
     </div>
 
