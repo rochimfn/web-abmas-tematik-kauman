@@ -95,6 +95,20 @@ class SuratController extends Controller
             date('Y-m-d') . '_' . $jenisSurat['nama'] . '_' . $permintaanSurat['user']['biodata']['nama_lengkap'] . '.docx'
         );
     }
+    public function diajukan()
+    {
+        $psurats = PermintaanSurat::paginate(10);
+        $jenisSurat = JenisSurat::paginate(10);
+        $isianPermintaanSurat = IsianPermintaanSUrat::paginate(10);
+        return view('psurat.diajukan', compact('psurats'));
+    }
+    public function diproses()
+    {
+        $psurats = PermintaanSurat::paginate(10);
+        $jenisSurat = JenisSurat::paginate(10);
+        $isianPermintaanSurat = IsianPermintaanSUrat::paginate(10);
+        return view('psurat.diproses', compact('psurats'));
+    }
     public function index()
     {
         $psurats = PermintaanSurat::paginate(10);
@@ -117,6 +131,21 @@ class SuratController extends Controller
       
     }
     public function update(Request $request, $id)
+    {
+        $psurats = PermintaanSurat::findOrFail($id);
+        $this->validate(request(), [
+            'status_surat' => 'required',
+            ]);
+            $psurats->status_surat = $request->get('status_surat');
+            $psurats->save();
+            return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
+    }
+    public function informasi($id)
+    {
+        $psurats = PermintaanSurat::find($id);
+        return view('psurat.informasi', compact('psurats','id'));
+    }
+    public function prosesSurat(Request $request, $id)
     {
         $psurats = PermintaanSurat::findOrFail($id);
         $this->validate(request(), [

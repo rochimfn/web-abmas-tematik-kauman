@@ -22,14 +22,20 @@ Route::get('/', function () {
 
 // Rute untuk admin
 Route::middleware('auth', 'admin')->group(function () {
-	Route::get('/cetak/{id}', [SuratController::class, 'cetakSurat'])->name('cetak.surat');
+	Route::post('/cetak/{id}', [SuratController::class, 'cetakSurat'])->name('cetak.surat');
+
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 	Route::get('/psurats', [App\Http\Controllers\SuratController::class, 'index'])->name('psurat.index');
+	Route::get('/psurats/diajukan', [App\Http\Controllers\SuratController::class, 'diajukan'])->name('psurat.diajukan');
+	Route::get('/psurats/diproses', [App\Http\Controllers\SuratController::class, 'diproses'])->name('psurat.diproses');
+	Route::post('/psurast/{id}', [App\Http\Controllers\SuratController::class, 'prosesSurat'])->name('psurat.prosesSurat');
+	
 	Route::get('/psurats/show/{id}', [App\Http\Controllers\SuratController::class, 'show'])->name('psurat.show');
+	Route::get('/psurats/informasi/{id}', [App\Http\Controllers\SuratController::class, 'informasi'])->name('psurat.informasi');
 	Route::delete('/psurats/{id}', [App\Http\Controllers\SuratController::class, 'destroy'])->name('psurat.destroy');
-	Route::post('/psurat/{id}', [App\Http\Controllers\SuratController::class, 'update'])->name('psurat.update');
+	Route::post('/psurats/{id}', [App\Http\Controllers\SuratController::class, 'update'])->name('psurat.update');
 
+	//pemberitahuan
 	Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
 	Route::get('/posts/buat', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
 	Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
@@ -38,6 +44,7 @@ Route::middleware('auth', 'admin')->group(function () {
 	Route::post('/posts/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
 	Route::get('/posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 
+	//user
 	Route::get('/user/tambah', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
 	Route::post('/user/tambah', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
 });

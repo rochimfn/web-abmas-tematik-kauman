@@ -91,10 +91,15 @@
                                     <i class="nav-icon fas fa-tachometer-alt"></i> <span>Dashboard</span>
                                 </a>
                             </li>
-                            <li class="nav-item ">    
-                                <a href="{{ route('psurat.index')}}" class="nav-link {{ 'psurats' == request()->path() ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-mail-bulk"></i> <span>Permintaan Surat</span>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fas fa-mail-bulk" href="#" id="navbarDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Permintaan Surat
                                 </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('psurat.index')}}">Semua Surat</a>
+                                <a class="dropdown-item" href="{{ route('psurat.diajukan')}}">Belum di proses </a>
+                                <a class="dropdown-item" href="{{ route('psurat.diproses')}}">Sedang di Proses</a>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('post.index')}}" class="nav-link {{ 'posts' == request()->path() ? 'active' : '' }}">
