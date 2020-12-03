@@ -19,13 +19,14 @@
               <table class="table table-bordered table-hover" id="tabel">
                 <thead>
                   <tr class="table-primary">
-                    <th width="50px" style="text-align: center;">No</th>
-                    <th width="200px" style="text-align: center;">User</th>
-                    <th width="200px" style="text-align: center;">Jenis Surat</th>
-                    <th width="200px" style="text-align: center;">Isian Surat</th>
-                    <th width="300px" style="text-align: center;">Status Surat</th>
-                    <th width="150px" style="text-align: center;">Dibuat</th>
-                    <th width="150px" style="text-align: center;">Terakhir direview</th>
+                    <th style="text-align: center;">No</th>
+                    <th style="text-align: center;">Pemohon</th>
+                    <th style="text-align: center;">Jenis Surat</th>
+                    <th style="text-align: center;">Isian Surat</th>
+                    <th style="text-align: center;">Isi Surat</th>
+                    <th style="text-align: center;">Status Surat</th>
+                    <th style="text-align: center;">Dibuat</th>
+                    <th style="text-align: center;">Terakhir direview</th>
                     <th colspan="3" style="text-align: center;">Action</th>
                   </tr>
                 </thead>
@@ -35,13 +36,20 @@
                     <td class="Idr">{{$permintaan_surat['permintaan_surat_id']}}</td>
                     <td class="User">{{$permintaan_surat->user->biodata->nama_lengkap}}</td>
                     <td class="Jenis">{{$permintaan_surat->jenisSurat->nama}}</td>
-                    <td class="Jenis">{{$permintaan_surat->isianPermintaanSurat->nama_isian}}</td>
+                    <td class="Nama Isian">{{$permintaan_surat->isianPermintaanSurat->nama_isian}}</td>
+                    <td class="Nilai Isian">{{$permintaan_surat->isianPermintaanSurat->nilai_isian}}</td>
                     <td class="Status">{{$permintaan_surat['status_surat']}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['created_at']))}}</td>
                     <td>{{date('d/m/y h:m', strtotime($permintaan_surat['updated_at']))}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><a href="{{route('psurat.show', $permintaan_surat['permintaan_surat_id'])}}" class="btn btn-info btn-circle" ><i class="fas fa-eye"></i></a></td>
+                    <td><a href="{{route('psurat.edit', $permintaan_surat['permintaan_surat_id'])}}" class="btn btn-info btn-circle" ><i class="fas fa-edit"></i></a>
+                        </td>
+                    <td>    <form method="POST" action="{{route('psurat.destroy', $permintaan_surat['permintaan_surat_id'])}}" >
+                        {{ csrf_field() }}
+                          <input name="_method" type="hidden" value="DELETE">
+                          <button class="btn btn-danger btn-circle" type="submit" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </td>
                     @endforeach
                 </tbody>
               </table>

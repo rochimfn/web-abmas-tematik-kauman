@@ -102,4 +102,34 @@ class SuratController extends Controller
         $isianPermintaanSurat = IsianPermintaanSUrat::paginate(10);
         return view('psurat.index', compact('psurats'));
     }
+    public function show($id)
+    {
+        $psurats = PermintaanSurat::find($id);
+        return view('psurat.show', compact('psurats','id'));
+    }
+    public function destroy($id)
+    {
+        $isianSurats = IsianPermintaanSurat::findOrFail($id);
+        $isianSurats->delete();
+        $psurats = PermintaanSurat::findOrFail($id);
+        $psurats->delete();
+        return redirect()->route('psurat.index')->with('success','Pemberitahuan berhasil dihapus');
+      
+    }
+    public function update(Request $request, $id)
+    {
+        $psurats = PermintaanSurat::findOrFail($id);
+        $this->validate(request(), [
+            'status_surat' => 'required',
+            ]);
+            $psurats->status_surat = $request->get('status_surat');
+            $psurats->save();
+            return redirect()->route('psurat.index')->with('success', 'Surat berhasil diupdate');
+    }
+    public function edit($id)
+    {
+        $psurats = PermintaanSurat::find($id);
+        return view('psurat.edit', compact('psurats','id'));
+
+    }
 }
