@@ -14,9 +14,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-stats-title text-primary">Surat Masuk</h5>
+                      <h5 class="card-stats-title text-primary">Surat Belum Diproses</h5>
                         <div class="card-stats-item">
-                            <div><span class="h4 font-weight-bold ">27</span></div>
+                            <div><span class="h4 font-weight-bold ">5</span></div>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -33,9 +33,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-stats-title  text-muted">Surat Diproses</h5>
+                      <h5 class="card-stats-title  text-muted">Surat Sedang Diproses</h5>
                         <div class="card-stats-item">
-                            <div><span class="h4 font-weight-bold">16</span></div>
+                            <div><span class="h4 font-weight-bold">5</span></div>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -54,9 +54,30 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
+                      <h5 class="card-stats-title  text-danger">Surat Ditolak</h5>
+                        <div class="card-stats-item">
+                            <div><span class="h4 font-weight-bold">5</span></div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape ">
+                      <i class="fas fa-ban"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 ">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
                       <h5 class="card-stats-title  text-success">Surat Selesai</h5>
                         <div class="card-stats-item">
-                          <div><span class="h4 font-weight-bold">95</span></div>
+                          <div><span class="h4 font-weight-bold">5</span></div>
                         </div>
                     </div>
                     <div class="col-auto">

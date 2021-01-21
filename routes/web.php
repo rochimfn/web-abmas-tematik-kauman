@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 // Rute untuk admin
-Route::middleware('auth', 'admin')->group(function () {
+Route::middleware('auth', 'admin')->group(function () {	
 	Route::get('/cetak/{id}', [SuratController::class, 'cetakSurat'])->name('cetak.surat');
 
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
